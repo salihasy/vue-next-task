@@ -3,7 +3,7 @@
 
 <script>
 export default {
-  name: "Events",
+  name: "EventDetails",
 };
 </script>
 <style >
