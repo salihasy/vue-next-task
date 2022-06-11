@@ -21,4 +21,9 @@ describe("EventDetails.vue", () => {
         expect(wrapper.exists()).toBeTruthy();
     })
 
+    it("event name text is true check", async () => {
+        let text = wrapper.find('.event-name').text()
+        expect(text).toEqual("Secret Cinema Presents Dirty Dancing")
+    })
+
 })
