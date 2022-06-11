@@ -1,7 +1,9 @@
 <template>
-<div class="event-name">
-  {{event.name}}
-</div>
+  <div id="eventDetail-container">
+    <p class="event-name">
+      Event Name : {{this.event}}
+    </p>
+  </div>
 </template>
 
 <script>
@@ -20,4 +22,17 @@ export default {
 };
 </script>
 <style >
+
+#eventDetail-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #c7f3c7;
+  display: flex;
+  flex-direction: row;
+  gap: 5vh;
+  justify-content: center;
+  align-items: center;
+  border-bottom-color: black;
+  background-color: rgb(110,197,119);
+}
 </style>
