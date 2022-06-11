@@ -3,13 +3,11 @@ import Header from "../../components/Header.vue"
 import {mount} from '@vue/test-utils'
 
 describe("App.vue", () => {
+    let wrapper
     // function for mount
     function mountComponent() {
         return mount(App)
     }
-
-    // beforeEach runs before each test
-    let wrapper 
     // if the component is not found this will return false, and test will fail
     it('component exists check', () => { 
         wrapper = mountComponent()
@@ -18,7 +16,7 @@ describe("App.vue", () => {
 
     it('Header component exists check', () => {
         wrapper = mountComponent()
-        const header = wrapper.findComponent(Header) // => finds Bar by component instance
+        const header = wrapper.findComponent(Header) 
         expect(header.exists()).toBeTruthy()
     })
 })

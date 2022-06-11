@@ -1,6 +1,7 @@
 <template>
-  <Header/>
-  <body><Table> </Table> </body>
+  <div id="app-container">
+  <Header> </Header>
+  </div>
 </template>
 
 <script>
@@ -14,22 +15,11 @@ export default {
 </script>
 <style >
 * {
-  width: 100%;
-  height: 100%;
-  margin: 0;
+  margin : 0;
+  box-sizing:border-box;
 }
-header {
-  width: 100%;
-  height: 4vh;
-  background: rgb(165, 206, 165);
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  padding: 2vh;
-}
-img {
-  margin: 2vh;
-  width: 10%;
+#app-container {
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
