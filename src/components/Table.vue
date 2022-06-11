@@ -1,6 +1,8 @@
 <template>
-  <Search> </Search>
-  <Events> </Events>
+  <div id = "table-container">
+  <Search id="search-component"> </Search>
+  <Events id="events-component"> </Events>
+  </div>
 </template>
 
 <script>
@@ -14,5 +16,5 @@ export default {
 
 };
 </script>
-<style >
+<style>
 </style>

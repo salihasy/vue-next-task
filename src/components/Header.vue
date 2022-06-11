@@ -1,6 +1,7 @@
 <template>
-<div>
-</div>
+    <div class="header">
+        <img alt="Tarfin logo" src="https://tarfin.com/img/logo.svg" />
+    </div>
 </template>
 
 <script>
@@ -16,5 +17,10 @@ export default {
   display: flex;
   flex-direction: row;
   padding: 1vh;
+}
+
+img {
+  height: 100%;
+  margin-left: 3vh;
 }
 </style>
