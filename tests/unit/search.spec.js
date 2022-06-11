@@ -1,10 +1,37 @@
 import Search from "@/components/Search.vue"
 import { shallowMount } from '@vue/test-utils'
+import {actions, getters, mutations, state} from "../../src/store/index";
+import API from "../../src/api.js"
+import { createStore } from 'vuex'
+import flushPromises from "flush-promises";
+const axios = require('axios')
+
+jest.mock("axios")
+
 
 describe("Search.vue", () => {
     // function for mount
+
+    const store = new createStore({
+        // this state not change real state , reset state for each test
+        state : JSON.parse(JSON.stringify(state)),
+        getters,
+        mutations,
+        actions
+    })
+
     function mountComponent() {
-        return shallowMount(Search)
+        return shallowMount(Search,{
+            data () {
+                return {
+                    key : "saliha"
+                }
+            },
+            global: {
+                plugins: [store]
+            }
+
+        })
     }
 
     it('component exists check', () => { 
@@ -84,7 +111,7 @@ describe("Search.vue", () => {
         })
     })
 
-    it('search button functionality test for store with mock',async () => {
+    it('search button functionality test for store with mock axios',async () => {
         const mockResponse = 
         {
             "data":   {
