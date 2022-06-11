@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button> Search </button>
   </div>
 </template>
 
