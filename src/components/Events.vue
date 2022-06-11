@@ -56,4 +56,9 @@ th {
   font-size: 1.5vh;
 }
 
+#sort-button {
+  margin: 1vh 15vh 0vh 0vh;
+  align-self: flex-end;
+}
+
 </style>
