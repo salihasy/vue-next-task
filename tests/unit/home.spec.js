@@ -1,4 +1,5 @@
 import Home from "../../src/views/Home.vue"
+import Table from "../../src/views/Home.vue"
 import {shallowMount} from '@vue/test-utils'
 
 describe("Home.vue", () => {

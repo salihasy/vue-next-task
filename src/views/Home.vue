@@ -1,11 +1,16 @@
 <template>
   <div id="home-container">
+        <Table/>
   </div>
 </template>
 
 <script>
+import Table from "../components/Table.vue";
 export default {
-  name: "Home"
+  name: "Home",
+  components : {
+      Table
+  }
 };
 </script>
 
