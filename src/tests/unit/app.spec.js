@@ -1,6 +1,7 @@
 import App from "../../App.vue"
 import Header from "../../components/Header.vue"
 import {mount} from '@vue/test-utils'
+import { createRouter , createWebHistory} from "vue-router";
 
 describe("App.vue", () => {
     let wrapper
@@ -18,5 +19,21 @@ describe("App.vue", () => {
         wrapper = mountComponent()
         const header = wrapper.findComponent(Header) 
         expect(header.exists()).toBeTruthy()
+    })
+
+    it('Home component exists check', async () => {
+        const router = createRouter({
+            history : createWebHistory(),
+            routes : routes
+        })
+        router.push('/')
+        await router.isReady()
+        wrapper = mount(App, {
+            global: {
+              plugins: [router]
+            }
+          })
+        const home = wrapper.findComponent(Home)
+        expect(home.exists()).toBeTruthy()
     })
 })
