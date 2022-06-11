@@ -21,7 +21,7 @@ export default {
     'eventList'
   ]),
     tablekey() {
-     return  Object.keys(this.eventList[0])[0] 
+     return  Object.keys(this.eventList[0])[0]
   }
   }
 };
