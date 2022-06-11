@@ -6191,4 +6191,14 @@ describe("Events.vue", () => {
         await wrapper.vm.$nextTick()
         expect(returned).toEqual(" ")
     })
+
+    it("sortByKey button click check", async () => {
+        const wrapper = mountComponent()
+        let sortButton = wrapper.find("#sort-button")
+        sortButton.trigger('click')
+        await wrapper.vm.$nextTick()
+        expect(dispatchMock).toHaveBeenCalledWith('sortByKey', {
+          sortKey: "name"
+      })
+      })
 })
