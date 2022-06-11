@@ -3,6 +3,7 @@ import { shallowMount } from '@vue/test-utils'
 
 describe("Events.vue", () => {
     // function for mount
+    const dispatchMock = jest.fn()
     const mockResponse = 
     {
         "_embedded": {
@@ -6150,7 +6151,8 @@ describe("Events.vue", () => {
             global : {
                 mocks : {
                     $store : {
-                        state : {eventList : mockResponse["_embedded"].events}
+                        state : {eventList : mockResponse["_embedded"].events},
+                        dispatch : dispatchMock
                     }
                 }
             }
@@ -6174,10 +6176,13 @@ describe("Events.vue", () => {
         expect(wrapper.find(".event-detail-button").length).toEqual(mockResponse.length)
     })
 
-    it("sort button text check", async () => {
+    it("sortByKey button click check", async () => {
         const wrapper = mountComponent()
-        const buttonText = wrapper.find("#sort-button")
-        expect(buttonText.text()).toContain("name")
-    })
-
+        let sortButton = wrapper.find("#sort-button")
+        sortButton.trigger('click')
+        await wrapper.vm.$nextTick()
+        expect(dispatchMock).toHaveBeenCalledWith('sortByKey', {
+          sortKey: "name"
+      })
+      })
 })
