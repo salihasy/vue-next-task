@@ -19,4 +19,10 @@ describe("Search.vue", () => {
         expect(a.exists()).toBeTruthy()
     })
 
+    // if the input element is not found this will return false, and test will fail
+    it('input element exists check', () => {
+        const wrapper = mountComponent()
+        let a = wrapper.find('#search-input')
+        expect(a.exists()).toBeTruthy()
+    })
 })
