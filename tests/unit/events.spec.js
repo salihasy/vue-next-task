@@ -6179,4 +6179,16 @@ describe("Events.vue", () => {
         const buttonText = wrapper.find("#sort-button")
         expect(buttonText.text()).toContain("name")
     })
+
+    it("when eventList null||undefined etc sort button check", async () => {
+        const wrapper = mountComponent()
+        const localThis = {
+                    eventList : {
+                        length : 0
+            }
+        }
+        const returned = Events.computed.tablekey.call(localThis)
+        await wrapper.vm.$nextTick()
+        expect(returned).toEqual(" ")
+    })
 })
