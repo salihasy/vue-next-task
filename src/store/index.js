@@ -4,7 +4,9 @@ import API from "../api"
 
 
 export const state = {
+    pageData:{},
     eventList:[],
+    searchKeyword: 1,
     sortFlag:false
 }
 
@@ -15,6 +17,9 @@ export const mutations = {
     getEvents (state, data) {
         state.pageData = data.page
         state.eventList=data["_embedded"].events
+    },
+    setSearchKeyword (state,keyword) {
+        state.searchKeyword = keyword
     },
     sort(state, sortKey) {
         state.eventList= !state.sortFlag ? state.eventList.sort((a, b) => a[sortKey].localeCompare(b[sortKey])):state.eventList.sort((a, b) => b[sortKey].localeCompare(a[sortKey]));
@@ -30,6 +35,7 @@ export const actions = {
             const {key,page}=payload
             const response = await API.getEvents(key, page)
             this.commit('getEvents', response.data)
+            this.commit('setSearchKeyword', key)
             this.commit('resetSortFlag')
     },
     async sortByKey(context, payload){
