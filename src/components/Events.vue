@@ -1,5 +1,6 @@
 <template>
   <div id="events-container">
+    <button id="sort-button" v-if="this.eventList.length > 0"> {{tablekey}}'e göre sırala </button>
     <table>
     <tr>
       <th class="event-container" v-for="(event,i) in eventList" :key="i"> {{event.name}} 
@@ -18,7 +19,10 @@ export default {
   {
     ...mapState([
     'eventList'
-  ])
+  ]),
+    tablekey() {
+     return  Object.keys(this.eventList[0])[0] 
+  }
   }
 };
 </script>
