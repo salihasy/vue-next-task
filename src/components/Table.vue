@@ -17,4 +17,23 @@ export default {
 };
 </script>
 <style>
+#search-component {
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  gap: 5vh;
+  justify-content: center;
+  align-items: center;
+  border-bottom-color: black;
+  background-color: rgb(110,197,119);
+}
+
+#events-component {
+  width: 100%;
+  background-color: #c7f3c7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>

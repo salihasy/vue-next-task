@@ -1,5 +1,11 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './index.css'
+import store from './store'
+import router from './router'
+import axios from 'axios'
+import Paginate from "vuejs-paginate-next";
 
-createApp(App).mount('#app')
+const app = createApp(App).use(router).use(store)
+app.config.globalProperties.$axios = axios
+app.use(Paginate)
+app.mount("#app")
