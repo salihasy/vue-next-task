@@ -19,4 +19,27 @@ describe("App.vue", () => {
         const header = wrapper.findComponent(Header) 
         expect(header.exists()).toBeTruthy()
     })
+
+    it('Home component exists check', async () => {
+        const router = createRouter({
+            history : createWebHistory(),
+            routes : routes
+        })
+        const store = new createStore({
+            // this state not change real state , reset state for each test
+            state : JSON.parse(JSON.stringify(state)),
+            getters,
+            mutations,
+            actions
+        })
+        router.push('/')
+        await router.isReady()
+        wrapper = mount(App, {
+            global: {
+              plugins: [router, store]
+            }
+          })
+        const home = wrapper.findComponent(Home)
+        expect(home.exists()).toBeTruthy()
+    })
 })
