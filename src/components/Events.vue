@@ -1,6 +1,6 @@
 <template>
   <div id="events-container">
-    <button id="sort-button" v-if="this.eventList.length > 0"> {{tablekey}}'e göre sırala </button>
+    <button id="sort-button" @click="sortByKey" v-if="this.eventList.length > 0"> {{tablekey}}'e göre sırala </button>
     <table>
     <tr>
       <th class="event-container" v-for="(event,i) in eventList" :key="i"> {{event.name}} 
@@ -23,6 +23,12 @@ export default {
     tablekey() {
      return  Object.keys(this.eventList[0])[0]
   }
+  },
+    methods : {
+    sortByKey() {
+    this.$store.dispatch('sortByKey',
+     { sortKey : this.tablekey})
+    } 
   }
 };
 </script>
