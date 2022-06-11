@@ -33,4 +33,29 @@ describe("Search.vue", () => {
         inputText.trigger("input")
         expect(wrapper.vm.$data.key).toBe("say")
     })
+
+    it('search button click functionality check', async () => {
+        const dispatchMock = jest.fn()
+        const wrapper = shallowMount(Search, {
+            data() {
+                return {
+                    key : "saliha"
+                }
+            },
+            global : {
+                mocks : {
+                    $store : {
+                        dispatch : dispatchMock
+                    }
+                }}
+        })
+
+        let button = wrapper.find('#search-button')
+        button.trigger("click")
+        await wrapper.vm.$nextTick()
+        expect(dispatchMock).toHaveBeenCalledWith('getEvents', {
+            key: "saliha",
+            page: 1
+        })
+    })
 })
