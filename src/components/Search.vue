@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" id="search-input" v-model="key">  
-    <button> Search </button>
+    <button id="search-button" @click="getEvents"> Search </button>
   </div>
 </template>
 
@@ -11,6 +11,14 @@ export default {
     data() {
     return {
       key : this.key
+    }
+  },
+    methods : {
+    getEvents() {
+        this.$store.dispatch('getEvents', {
+        key: this.key,
+        page: 1
+        })
     }
   }
 };
