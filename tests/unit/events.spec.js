@@ -6173,4 +6173,10 @@ describe("Events.vue", () => {
         const wrapper = mountComponent()
         expect(wrapper.find(".event-detail-button").length).toEqual(mockResponse.length)
     })
+
+    it("sort button text check", async () => {
+        const wrapper = mountComponent()
+        const buttonText = wrapper.find("#sort-button")
+        expect(buttonText.text()).toContain("name")
+    })
 })

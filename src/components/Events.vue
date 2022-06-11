@@ -3,7 +3,7 @@
     <table>
     <tr>
       <th class="event-container" v-for="(event,i) in eventList" :key="i"> {{event.name}} 
-                    <button class="event-detail-button"> Detail </button>  
+          <button class="event-detail-button"> Detail </button>  
       </th>
     </tr>
     </table>
