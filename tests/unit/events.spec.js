@@ -6169,7 +6169,7 @@ describe("Events.vue", () => {
         expect(wrapper.find("th").length).toEqual(mockResponse.length)
     })
 
-    it("eventdetail button count check", () => {
+    it("event detail button count check", () => {
         const wrapper = mountComponent()
         expect(wrapper.find(".event-detail-button").length).toEqual(mockResponse.length)
     })
