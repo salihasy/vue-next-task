@@ -1,4 +1,5 @@
 import App from "../../App.vue"
+import Header from "../../components/Header.vue"
 import {mount} from '@vue/test-utils'
 
 describe("App.vue", () => {

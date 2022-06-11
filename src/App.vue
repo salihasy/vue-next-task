@@ -1,11 +1,15 @@
 <template>
-  <header> <img alt="Tarfin logo" src="https://tarfin.com/img/logo.svg" /> </header>
+  <Header/>
   <body><Table> </Table> </body>
 </template>
 
 <script>
+import Header from "../src/components/Header.vue"
 export default {
   name: "App",
+  components : {
+    Header
+  }
 };
 </script>
 <style >
