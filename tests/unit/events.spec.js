@@ -1,5 +1,7 @@
 import Events from "@/components/Events.vue"
 import { shallowMount } from '@vue/test-utils'
+import {actions, getters, mutations, state} from "../../src/store/index";
+import { createStore } from 'vuex'
 
 describe("Events.vue", () => {
     // function for mount
@@ -6184,5 +6186,31 @@ describe("Events.vue", () => {
         expect(dispatchMock).toHaveBeenCalledWith('sortByKey', {
           sortKey: "name"
       })
+    })
+
+    it("sortByKey store check", async () => {
+        const store = new createStore({
+          // this state not change real state , reset state for each test
+          state : {eventList : mockResponse["_embedded"].events},
+          getters,
+          mutations,
+          actions
+      })
+        const wrapper = shallowMount(Events, {
+            global: {
+              plugins: [store]
+        }
+        })
+        let list = [...wrapper.vm.$store.state.eventList]
+        let sortButton = wrapper.find("#sort-button")
+        sortButton.trigger('click')
+        await wrapper.vm.$nextTick()
+        expect(list).not.toEqual(wrapper.vm.$store.state.eventList)
+        expect(list[0].name).toEqual("Secret Cinema Presents Dirty Dancing")
+        expect(wrapper.vm.$store.state.eventList[0].name).toEqual("Chad Daniels")
+        sortButton.trigger('click')
+        expect(wrapper.vm.$store.state.eventList[0].name).toEqual("The Marias Present: CINEMA  - RESCHEDULED FROM 2/3/22")
+        sortButton.trigger('click')
+        expect(wrapper.vm.$store.state.eventList[0].name).toEqual("Chad Daniels")
       })
 })
