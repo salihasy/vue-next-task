@@ -15,10 +15,12 @@ export default {
   },
     methods : {
     getEvents() {
+        if (this.key !== "" && this.key !== undefined) {
         this.$store.dispatch('getEvents', {
         key: this.key,
         page: 1
         })
+      }
     }
   }
 };
