@@ -6180,25 +6180,4 @@ describe("Events.vue", () => {
         expect(buttonText.text()).toContain("name")
     })
 
-    it("when eventList null||undefined etc sort button check", async () => {
-        const wrapper = mountComponent()
-        const localThis = {
-                    eventList : {
-                        length : 0
-            }
-        }
-        const returned = Events.computed.tablekey.call(localThis)
-        await wrapper.vm.$nextTick()
-        expect(returned).toEqual(" ")
-    })
-
-    it("sortByKey button click check", async () => {
-        const wrapper = mountComponent()
-        let sortButton = wrapper.find("#sort-button")
-        sortButton.trigger('click')
-        await wrapper.vm.$nextTick()
-        expect(dispatchMock).toHaveBeenCalledWith('sortByKey', {
-          sortKey: "name"
-      })
-      })
 })
