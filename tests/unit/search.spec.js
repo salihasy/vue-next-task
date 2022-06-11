@@ -58,4 +58,29 @@ describe("Search.vue", () => {
             page: 1
         })
     })
+
+    it('search button click functionality check when input key null or undefined', async () => {
+        const dispatchMock = jest.fn()
+        const wrapper = shallowMount(Search, {
+            data() {
+                return {
+                    key : ""
+                }
+            },
+            global : {
+                mocks : {
+                    $store : {
+                        dispatch : dispatchMock
+                    }
+                }}
+        })
+
+        let button = wrapper.find('#search-button')
+        button.trigger("click")
+        await wrapper.vm.$nextTick()
+        expect(dispatchMock).not.toHaveBeenCalledWith('getEvents', {
+            key: "",
+            page: 1
+        })
+    })
 })
