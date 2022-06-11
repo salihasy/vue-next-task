@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div id="events-container">
     <table>
     <tr>
-      <th v-for="(event,i) in eventList" :key="i"> {{event.name}} </th>
+      <th class="event-container" v-for="(event,i) in eventList" :key="i"> {{event.name}} </th>
     </tr>
     </table>
   </div>
@@ -21,4 +21,27 @@ export default {
 };
 </script>
 <style >
+.event-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 100vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+table {
+  margin-top: 3vh ;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 0.3vh solid rgb(55,107,73)
+}
+
+table th:nth-child(even){background-color: #6ec577;}
+
+table th:hover {background-color: rgb(67, 139, 91);}
+
+th {
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+}
+
 </style>
