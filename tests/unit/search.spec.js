@@ -25,4 +25,12 @@ describe("Search.vue", () => {
         let a = wrapper.find('#search-input')
         expect(a.exists()).toBeTruthy()
     })
+
+    it('input text with v-model change check', () => {
+        const wrapper = mountComponent();
+        let inputText = wrapper.find('#search-input');
+        inputText.element.value = "say"
+        inputText.trigger("input")
+        expect(wrapper.vm.$data.key).toBe("say")
+    })
 })
