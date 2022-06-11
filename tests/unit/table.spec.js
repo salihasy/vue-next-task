@@ -1,6 +1,7 @@
 import {shallowMount} from '@vue/test-utils'
 import Search from "../../src/components/Events.vue"
 import Events from "../../src/components/Search.vue"
+import Pagination from "../../src/components/Pagination.vue"
 import Table from "@/components/Table.vue";
 
 
@@ -32,6 +33,9 @@ describe("Table.vue", () => {
         expect(events.exists()).toBeTruthy()
     })
 
-
+    it('Pagination component exists check', () => {
+        const pagination = wrapper.findComponent(Pagination)
+        expect(pagination.exists()).toBeTruthy()
+    })
 
 })
