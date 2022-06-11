@@ -1,5 +1,6 @@
 <template>
   <div>
+    <input type="text" id="search-input">  
     <button> Search </button>
   </div>
 </template>
