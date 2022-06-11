@@ -1,8 +1,8 @@
-import App from "../../App.vue"
-import Header from "../../components/Header.vue"
-import Home from "../../views/Home.vue"
+import App from "../../src/App.vue"
+import Header from "../../src/components/Header.vue"
+import Home from "../../src/views/Home.vue"
 import {mount} from '@vue/test-utils'
-import {routes} from "../../router/index"
+import {routes} from "../../src/router/index"
 import { createRouter , createWebHistory} from "vue-router";
 
 describe("App.vue", () => {
