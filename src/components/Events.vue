@@ -46,4 +46,10 @@ th {
   padding-bottom: 1.5vh;
 }
 
+.event-detail-button {
+  border-radius: 0.5vh;
+  border: none;
+  font-size: 1.5vh;
+}
+
 </style>
