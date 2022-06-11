@@ -1,4 +1,6 @@
 import {shallowMount} from '@vue/test-utils'
+import Search from "../../src/components/Events.vue"
+import Events from "../../src/components/Search.vue"
 import Table from "@/components/Table.vue";
 
 
@@ -20,13 +22,13 @@ describe("Table.vue", () => {
     })
 
     it('Search component exists check', () => {
-        const search = wrapper.findComponent(Search) // => finds Bar by component instance
+        const search = wrapper.findComponent(Search)
         expect(search.exists()).toBeTruthy()
     })
 
 
     it('Events component exists check', () => {
-        const events = wrapper.findComponent(Events) // => finds Bar by component instance
+        const events = wrapper.findComponent(Events)
         expect(events.exists()).toBeTruthy()
     })
 
