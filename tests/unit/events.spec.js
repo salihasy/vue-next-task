@@ -6164,7 +6164,7 @@ describe("Events.vue", () => {
         expect(wrapper.exists()).toBeTruthy();
     })
 
-    it("Event count check", () => {
+    it("event count check", () => {
         const wrapper = mountComponent()
         expect(wrapper.find("th").length).toEqual(mockResponse.length)
     })
