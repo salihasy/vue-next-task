@@ -1,8 +1,9 @@
 <template>
   <div id="eventDetail-container">
     <p class="event-name">
-      Event Name : {{this.event}}
+      {{event.name}}
     </p>
+      <img width="200" :src="this.event.images[0].url"/>
   </div>
 </template>
 
@@ -17,7 +18,13 @@ export default {
   ])
   },
   beforeMount(){
-    this.event=this.eventList.find(val=>val.id===this.$route.query.id)
+    if(this.eventList.length>0){
+     this.event=this.eventList.find(val=>val.id===this.$route.query.id)
+     localStorage.setItem("eventDetail",JSON.stringify(this.event))
+    }
+    else{
+      this.event=JSON.parse(localStorage.getItem("eventDetail"))
+    }
   }
 };
 </script>
