@@ -7,6 +7,14 @@
 ***Tarfin Search Project***
 ---
 
+![Watch the gif](./src/assets/tarfin-task-gif.gif)
+
+***Test Coverage***
+---
+
+![Test Coverage](./src/assets/test-coverage.png)
+
+<br />
 
 ## **TITLES**
 
@@ -21,6 +29,37 @@
   <br />
 
 ## Structure of folders
+
+---
+
+- src
+    - views
+        - [Home.vue](./src/views/Home.vue)
+        - [EventDetails.vue](./src/views/EventDetails.vue)
+    - components
+        -   [Events.vue](./src/components/Events.vue)
+        -   [Header.vue](./src/components/Header.vue)
+        -   [Pagination.vue](./src/components/Pagination.vue)
+        -   [Search.vue](./src/components/Search.vue)
+        -   [Table.vue](./src/components/Table.vue)
+    - [App.vue](./src/App.vue)
+    - [main.js](./src/main.js)
+    - [api.js](./src/api.js) 
+    - store
+        - [Store](./src/store/index.js)
+    - router
+        - [Router](./src/router/index.js)
+- tests
+    - unit
+        - [AppTest](./tests/unit/app.spec.js)
+        - [EventDetailsTest](./tests/unit/eventDetails.spec.js)
+        - [EventsTest](./tests/unit/events.spec.js)
+        - [HomeTest](./tests/unit/home.spec.js)
+        - [PaginationTest](./tests/unit/pagination.spec.js)
+        - [SearchTest](./tests/unit/home.spec.js)
+        - [TableTest](./tests/unit/table.spec.js)
+          <br />
+
 
 ## Description
 
