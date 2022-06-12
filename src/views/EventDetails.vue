@@ -1,9 +1,16 @@
 <template>
   <div id="eventDetail-container">
-    <p class="event-name">
-      {{event.name}}
+    <img class="event-image" :src="this.event.images[0].url"/>
+    <p class="event">
+      <strong> Event Name : </strong> {{event.name}}
     </p>
-      <img width="200" :src="this.event.images[0].url"/>
+    <p>
+      <strong> Event startDateTime : </strong> {{event.dates.start.localDate}} - {{event.dates.start.localTime}}
+    </p>
+
+    <p v-if="event.priceRanges !== (null || undefined)">
+      <strong> Price Ranges : </strong> {{event.priceRanges[0].min}} - {{event.priceRanges[0].max}} {{event.priceRanges[0].currency}}
+      </p>
   </div>
 </template>
 
@@ -35,11 +42,16 @@ export default {
   height: 100vh;
   background-color: #c7f3c7;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 5vh;
   justify-content: center;
   align-items: center;
   border-bottom-color: black;
   background-color: rgb(110,197,119);
+}
+
+.event-image {
+  height: 50vh;
+  width: 100vh;
 }
 </style>

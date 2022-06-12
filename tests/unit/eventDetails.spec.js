@@ -6178,8 +6178,8 @@ describe("EventDetails.vue", () => {
     })
 
     it("event name text is true check", async () => {
-        let text = wrapper.find('.event-name').text()
-        expect(text).toEqual("Secret Cinema Presents Dirty Dancing")
+        let text = wrapper.find('.event').text()
+        expect(text).toContain("Secret Cinema Presents Dirty Dancing")
     })
 
 })
